@@ -1,30 +1,50 @@
 export default (sequelize, DataTypes) => {
-    const Proceso = sequelize.define("proceso", { // Nombre del modelo singular
-        id_proceso: {
+    const Resultado = sequelize.define("resultados", { // Nombre del modelo singular
+        id_resultado: {
             type: DataTypes.INTEGER,
             primaryKey: true,
             autoIncrement: true,
-        },
-        intensidad: {
+        }, 
+        id_carga: {
             type: DataTypes.INTEGER,
+            allowNull: true, // Opcional
+        },
+        tipo_doc: {
+            type: DataTypes.INTEGER,
+            allowNull: true, // Opcional
+        },
+        nro_doc: {
+            type: DataTypes.STRING,
+            allowNull: true, // Opcional
+        },
+        modalidad: {
+            type: DataTypes.STRING,
+            allowNull: true, // Opcional
+        },
+        nro_telefono: {
+            type: DataTypes.STRING,
+            allowNull: true, // Opcional
+        },
+        emp_operadora: {
+            type: DataTypes.STRING,
             allowNull: true, // Opcional
         },
         estado: {
             type: DataTypes.INTEGER,
             defaultValue: 1,
-            allowNull: false,
+            allowNull: true,
         },
         registrado_por: {
             type: DataTypes.INTEGER,
-            allowNull: false,
+            allowNull: true,
         },
         ip_reg: {
             type: DataTypes.STRING,
-            allowNull: false,
+            allowNull: true,
         },
         fec_reg: {
             type: DataTypes.DATE,
-            allowNull: false,
+            allowNull: true,
         },
         actualizado_por: {
             type: DataTypes.INTEGER,
@@ -40,5 +60,5 @@ export default (sequelize, DataTypes) => {
         },
     });
 
-    return Proceso;
+    return Resultado;
 };

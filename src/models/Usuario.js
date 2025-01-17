@@ -1,12 +1,28 @@
 export default (sequelize, DataTypes) => {
-    const Proceso = sequelize.define("proceso", { // Nombre del modelo singular
-        id_proceso: {
+    const Usuario = sequelize.define("usuario", { // Nombre del modelo singular
+        id_usuario: {
             type: DataTypes.INTEGER,
             primaryKey: true,
             autoIncrement: true,
         },
-        intensidad: {
-            type: DataTypes.INTEGER,
+        nombres: {
+            type: DataTypes.STRING,
+            allowNull: true, // Opcional
+        },
+        usuario: {
+            type: DataTypes.STRING,
+            unique: true, // Campo único
+        },
+        email: {
+            type: DataTypes.STRING,
+            allowNull: true, // Opcional
+        },
+        rol: {
+            type: DataTypes.STRING,
+            allowNull: true, // Opcional
+        },
+        password: {
+            type: DataTypes.STRING,
             allowNull: true, // Opcional
         },
         estado: {
@@ -16,15 +32,15 @@ export default (sequelize, DataTypes) => {
         },
         registrado_por: {
             type: DataTypes.INTEGER,
-            allowNull: false,
+            allowNull: true,
         },
         ip_reg: {
             type: DataTypes.STRING,
-            allowNull: false,
+            allowNull: true,
         },
         fec_reg: {
             type: DataTypes.DATE,
-            allowNull: false,
+            allowNull: true,
         },
         actualizado_por: {
             type: DataTypes.INTEGER,
@@ -40,5 +56,6 @@ export default (sequelize, DataTypes) => {
         },
     });
 
-    return Proceso;
-};
+    return Usuario;
+}
+
